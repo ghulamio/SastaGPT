@@ -11,8 +11,9 @@ export default function Footer() {
           config.customFooter
         ) : (
           <>
+            {/* {config?.appTitle || 'SastaGPT'} v0.6.10 */}
             <a href="https://librechat.ai" target="_blank" rel="noreferrer" className="underline">
-              {config?.appTitle || 'LibreChat'} v0.6.10
+              SastaGPT
             </a>
             {' - '} {localize('com_ui_new_footer')}
           </>
