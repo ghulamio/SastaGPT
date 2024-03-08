@@ -60,8 +60,79 @@ function NavLinks() {
         {({ open }) => (
           <>
             {startupConfig?.checkBalance && balanceQuery.data && (
-              <div className="m-1 ml-3 whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
-                {`Balance: ${balanceQuery.data}`}
+              <div className="m-1 ml-3 flex items-center whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
+                {`Balance: ${Number(balanceQuery.data) / 10}`}
+                <Menu as="div" className="relative ml-4 inline-block text-left">
+                  <div>
+                    <Menu.Button className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white underline shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
+                      Buy Credits
+                    </Menu.Button>
+                  </div>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute bottom-full left-0 z-20 mb-1 mt-1 w-full translate-y-0 overflow-hidden rounded-lg bg-white py-1.5 opacity-100 outline-none dark:bg-gray-800">
+                      <div className="py-1">
+                        {/* Payment Gateway 1 Option */}
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={`${
+                                active
+                                  ? 'bg-gray-100 dark:bg-gray-700'
+                                  : 'text-gray-700 dark:text-gray-200'
+                              } group flex items-center px-4 py-2 text-sm`}
+                            >
+                              Papara
+                            </a>
+                          )}
+                        </Menu.Item>
+
+                        {/* Payment Gateway 2 Option */}
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={`${
+                                active
+                                  ? 'bg-gray-100 dark:bg-gray-700'
+                                  : 'text-gray-700 dark:text-gray-200'
+                              } group flex items-center px-4 py-2 text-sm`}
+                            >
+                              Jazz Cash
+                            </a>
+                          )}
+                        </Menu.Item>
+
+                        {/* Email Option */}
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="mailto:ghulamxahmed@gmail.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`${
+                                active
+                                  ? 'bg-gray-100 dark:bg-gray-700'
+                                  : 'text-gray-700 dark:text-gray-200'
+                              } group flex items-center px-4 py-2 text-sm`}
+                            >
+                              Email
+                            </a>
+                          )}
+                        </Menu.Item>
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
               </div>
             )}
             <Menu.Button
