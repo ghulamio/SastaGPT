@@ -76,7 +76,7 @@ export default function OptionsBar() {
                 isMultiChat={true}
                 showAbove={false}
               />
-              {!noSettings[endpoint] && (
+              {/* {!noSettings[endpoint] && (
                 <Button
                   type="button"
                   className={cn(
@@ -88,9 +88,9 @@ export default function OptionsBar() {
                 >
                   <Settings2 className="w-4 text-gray-600 dark:text-white" />
                 </Button>
-              )}
+              )} */}
             </div>
-            <OptionsPopover
+            {/* <OptionsPopover
               visible={showPopover}
               saveAsPreset={saveAsPreset}
               closePopover={() => setShowPopover(false)}
@@ -103,8 +103,8 @@ export default function OptionsBar() {
                   isMultiChat={true}
                 />
               </div>
-            </OptionsPopover>
-            <SaveAsPresetDialog
+            </OptionsPopover> */}
+            {/* <SaveAsPresetDialog
               open={saveAsDialogShow}
               onOpenChange={setSaveAsDialogShow}
               preset={
@@ -112,11 +112,11 @@ export default function OptionsBar() {
                   ...conversation,
                 }) as TPreset
               }
-            />
-            <PluginStoreDialog
+            /> */}
+            {/* <PluginStoreDialog
               isOpen={showPluginStoreDialog}
               setIsOpen={setShowPluginStoreDialog}
-            />
+            /> */}
           </span>
         </div>
       </Anchor>

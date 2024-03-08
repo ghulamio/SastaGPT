@@ -63,21 +63,21 @@ export default function Presentation({
     </div>
   );
 
-  if (useSidePanel && !hideSidePanel) {
-    return (
-      <div
-        ref={drop}
-        className="relative flex w-full grow overflow-hidden bg-white dark:bg-gray-800"
-      >
-        <SidePanel defaultLayout={defaultLayout} defaultCollapsed={defaultCollapsed}>
-          <div className="flex h-full flex-col" role="presentation" tabIndex={0}>
-            {children}
-            {isActive && <DragDropOverlay />}
-          </div>
-        </SidePanel>
-      </div>
-    );
-  }
+  // if (useSidePanel && !hideSidePanel) {
+  //   return (
+  //     <div
+  //       ref={drop}
+  //       className="relative flex w-full grow overflow-hidden bg-white dark:bg-gray-800"
+  //     >
+  //       <SidePanel defaultLayout={defaultLayout} defaultCollapsed={defaultCollapsed}>
+  //         <div className="flex h-full flex-col" role="presentation" tabIndex={0}>
+  //           {children}
+  //           {isActive && <DragDropOverlay />}
+  //         </div>
+  //       </SidePanel>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div ref={drop} className="relative flex w-full grow overflow-hidden bg-white dark:bg-gray-800">

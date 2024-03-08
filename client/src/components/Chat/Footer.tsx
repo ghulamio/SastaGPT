@@ -12,7 +12,7 @@ export default function Footer() {
         ) : (
           <>
             {/* {config?.appTitle || 'SastaGPT'} v0.6.10 */}
-            <a href="https://librechat.ai" target="_blank" rel="noreferrer" className="underline">
+            <a href="https://gahmed.com" target="_blank" rel="noreferrer" className="underline">
               SastaGPT
             </a>
             {' - '} {localize('com_ui_new_footer')}

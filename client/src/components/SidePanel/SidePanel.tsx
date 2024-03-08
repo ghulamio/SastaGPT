@@ -27,7 +27,7 @@ const defaultMinSize = 20;
 
 export default function SidePanel({
   defaultLayout = [97, 3],
-  defaultCollapsed = false,
+  defaultCollapsed = true,
   navCollapsedSize = 3,
   children,
 }: SidePanelProps) {
