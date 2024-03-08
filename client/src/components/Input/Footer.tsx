@@ -12,7 +12,7 @@ export default function Footer() {
       ) : (
         <>
           <a href="https://gahmed.com" target="_blank" rel="noreferrer" className="underline">
-            {config?.appTitle || 'LibreChat'} v0.6.10
+            {config?.appTitle || 'SastaGPT'} v0.6.10
           </a>
           {' - '}. {localize('com_ui_pay_per_call')}
         </>
