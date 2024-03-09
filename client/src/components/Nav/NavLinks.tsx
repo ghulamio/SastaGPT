@@ -84,14 +84,13 @@ function NavLinks() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="#"
-                              className={`${
-                                active
+                              href="https://sastagpt.lemonsqueezy.com/checkout/buy/b00a35cb-3157-4338-90dd-02ccf2ea7ffc"
+                              className={`${active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
+                                } group flex items-center px-4 py-2 text-sm`}
                             >
-                              Papara
+                              USD
                             </a>
                           )}
                         </Menu.Item>
@@ -101,13 +100,12 @@ function NavLinks() {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={`${
-                                active
+                              className={`${active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
+                                } group flex items-center px-4 py-2 text-sm`}
                             >
-                              Jazz Cash
+                              PKR (coming)
                             </a>
                           )}
                         </Menu.Item>
@@ -119,11 +117,10 @@ function NavLinks() {
                               href="mailto:ghulamxahmed@gmail.com"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`${
-                                active
+                              className={`${active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
+                                } group flex items-center px-4 py-2 text-sm`}
                             >
                               Email
                             </a>
