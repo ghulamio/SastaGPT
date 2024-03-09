@@ -124,7 +124,7 @@ function NavLinks() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="mailto:ghulamxahmed@gmail.com"
+                              href="mailto:contact.sastagpt@gmail.com"
                               target="_blank"
                               rel="noopener noreferrer"
                               className={`${
