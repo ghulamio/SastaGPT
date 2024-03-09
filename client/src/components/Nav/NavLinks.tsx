@@ -59,9 +59,17 @@ function NavLinks() {
       <Menu as="div" className="group relative">
         {({ open }) => (
           <>
-            {startupConfig?.checkBalance && balanceQuery.data && (
+            {/* {startupConfig?.checkBalance && balanceQuery.data && ( */}
+            {startupConfig?.checkBalance && (
               <div className="m-1 ml-3 flex items-center whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
-                {`Balance: ${Number(balanceQuery.data) / 10}`}
+                {balanceQuery.data && (
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-black dark:text-white">Credits:</span>
+                    <span className="text-black dark:text-white">
+                      {Number(balanceQuery.data) / 10}
+                    </span>
+                  </div>
+                )}
                 <Menu as="div" className="relative ml-4 inline-block text-left">
                   <div>
                     <Menu.Button className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white underline shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
@@ -84,13 +92,14 @@ function NavLinks() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="https://sastagpt.lemonsqueezy.com/checkout/buy/b00a35cb-3157-4338-90dd-02ccf2ea7ffc"
-                              className={`${active
+                              href="#"
+                              className={`${
+                                active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                                } group flex items-center px-4 py-2 text-sm`}
+                              } group flex items-center px-4 py-2 text-sm`}
                             >
-                              USD
+                              USD (coming)
                             </a>
                           )}
                         </Menu.Item>
@@ -100,10 +109,11 @@ function NavLinks() {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={`${active
+                              className={`${
+                                active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                                } group flex items-center px-4 py-2 text-sm`}
+                              } group flex items-center px-4 py-2 text-sm`}
                             >
                               PKR (coming)
                             </a>
@@ -117,10 +127,11 @@ function NavLinks() {
                               href="mailto:ghulamxahmed@gmail.com"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`${active
+                              className={`${
+                                active
                                   ? 'bg-gray-100 dark:bg-gray-700'
                                   : 'text-gray-700 dark:text-gray-200'
-                                } group flex items-center px-4 py-2 text-sm`}
+                              } group flex items-center px-4 py-2 text-sm`}
                             >
                               Email
                             </a>
