@@ -1,11 +1,12 @@
 import { useLocation } from 'react-router-dom';
 import { Fragment, useState, memo } from 'react';
-import { Download, FileText } from 'lucide-react';
+import { Download, FileText, FileQuestion, CircleDollarSign } from 'lucide-react';
 import { Menu, Transition } from '@headlessui/react';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { useGetUserBalance, useGetStartupConfig } from 'librechat-data-provider/react-query';
 import type { TConversation } from 'librechat-data-provider';
 import FilesView from '~/components/Chat/Input/Files/FilesView';
+import Information from '~/components/Chat/Input/Files/Information';
 import { useAuthContext } from '~/hooks/AuthContext';
 import useAvatar from '~/hooks/Messages/useAvatar';
 import { ExportModal } from './ExportConversation';
@@ -28,6 +29,7 @@ function NavLinks() {
   });
   const [showExports, setShowExports] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [showInformation, setShowInformation] = useState(false);
   const [showFiles, setShowFiles] = useRecoilState(store.showFiles);
 
   const activeConvo = useRecoilValue(store.conversationByIndex(0));
@@ -61,19 +63,19 @@ function NavLinks() {
           <>
             {/* {startupConfig?.checkBalance && balanceQuery.data && ( */}
             {startupConfig?.checkBalance && (
-              <div className="m-1 ml-3 flex items-center whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
-                {balanceQuery.data && (
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-black dark:text-white">Credits:</span>
-                    <span className="text-black dark:text-white">
-                      {Number(balanceQuery.data) / 10}
-                    </span>
-                  </div>
-                )}
-                <Menu as="div" className="relative ml-4 inline-block text-left">
+              <div className="whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
+                <Menu as="div" className="relative inline-block text-left">
                   <div>
-                    <Menu.Button className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white underline shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
-                      Buy Credits
+                    <Menu.Button className="inline-flex gap-2 rounded-md border border-transparent px-4 py-2 text-sm  text-white shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
+                      {/* <CircleDollarSign className="icon-md" /> */}
+                      Credits:
+                      {balanceQuery.data && (
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-black dark:text-white">
+                            {Number(balanceQuery.data) / 10}
+                          </span>
+                        </div>
+                      )}
                     </Menu.Button>
                   </div>
 
@@ -86,56 +88,25 @@ function NavLinks() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute bottom-full left-0 z-20 mb-1 mt-1 w-full translate-y-0 overflow-hidden rounded-lg bg-white py-1.5 opacity-100 outline-none dark:bg-gray-800">
+                    <Menu.Items className="absolute bottom-full left-0 z-20 mb-1 mt-1 w-auto overflow-hidden rounded-lg bg-white py-1.5 opacity-100 outline-none dark:bg-gray-800">
                       <div className="py-1">
-                        {/* Payment Gateway 1 Option */}
                         <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={`${
-                                active
-                                  ? 'bg-gray-100 dark:bg-gray-700'
-                                  : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
-                            >
-                              USD (coming)
-                            </a>
-                          )}
+                          <NavLink
+                            className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            svg={() => <FileQuestion className="icon-md" />}
+                            text="What are credits?"
+                            clickHandler={() => setShowInformation(true)}
+                          />
                         </Menu.Item>
-
-                        {/* Payment Gateway 2 Option */}
                         <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={`${
-                                active
-                                  ? 'bg-gray-100 dark:bg-gray-700'
-                                  : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
-                            >
-                              PKR (coming)
-                            </a>
-                          )}
-                        </Menu.Item>
-
-                        {/* Email Option */}
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="mailto:contact.sastagpt@gmail.com"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`${
-                                active
-                                  ? 'bg-gray-100 dark:bg-gray-700'
-                                  : 'text-gray-700 dark:text-gray-200'
-                              } group flex items-center px-4 py-2 text-sm`}
-                            >
-                              Email
-                            </a>
-                          )}
+                          <NavLink
+                            className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            svg={() => <CircleDollarSign className="icon-md" />}
+                            text="Buy credits"
+                            clickHandler={() =>
+                              window.open('mailto:contact.sastagpt@gmail.com', '_blank')
+                            }
+                          />
                         </Menu.Item>
                       </div>
                     </Menu.Items>
@@ -230,7 +201,7 @@ function NavLinks() {
                     clickHandler={() => setShowSettings(true)}
                   />
                 </Menu.Item>
-                <div className="my-1 h-px bg-black/20 bg-white/20" role="none" />
+                <div className="my-1 h-px bg-black/20 dark:bg-white/20" role="none" />
                 <Menu.Item as="div">
                   <Logout />
                 </Menu.Item>
@@ -244,6 +215,7 @@ function NavLinks() {
       )}
       {showFiles && <FilesView open={showFiles} onOpenChange={setShowFiles} />}
       {showSettings && <Settings open={showSettings} onOpenChange={setShowSettings} />}
+      {showInformation && <Information open={showInformation} onOpenChange={setShowInformation} />}
     </>
   );
 }
