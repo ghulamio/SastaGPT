@@ -214,7 +214,11 @@ function NavLinks() {
                       className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                       svg={() => <LinkIcon />}
                       text={localize('com_nav_help_faq')}
-                      clickHandler={() => window.open(startupConfig?.helpAndFaqURL, '_blank')}
+                      // clickHandler={() => window.open(startupConfig?.helpAndFaqURL, '_blank')}
+                      // Send mail to support instead
+                      clickHandler={() =>
+                        window.open('mailto:contact.sastagpt@gmail.com', '_blank')
+                      }
                     />
                   </Menu.Item>
                 )}
