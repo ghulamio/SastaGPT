@@ -7,6 +7,7 @@ import { useGetUserBalance, useGetStartupConfig } from 'librechat-data-provider/
 import type { TConversation } from 'librechat-data-provider';
 import FilesView from '~/components/Chat/Input/Files/FilesView';
 import Information from '~/components/Chat/Input/Files/Information';
+import Pricing from '~/components/Chat/Input/Files/Pricing';
 import { useAuthContext } from '~/hooks/AuthContext';
 import useAvatar from '~/hooks/Messages/useAvatar';
 import { ExportModal } from './ExportConversation';
@@ -18,6 +19,7 @@ import NavLink from './NavLink';
 import Logout from './Logout';
 import { cn } from '~/utils/';
 import store from '~/store';
+import { M } from 'vite/dist/node/types.d-jgA8ss1A';
 
 function NavLinks() {
   const localize = useLocalize();
@@ -30,6 +32,7 @@ function NavLinks() {
   const [showExports, setShowExports] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showInformation, setShowInformation] = useState(false);
+  const [showPricing, setShowPricing] = useState(false);
   const [showFiles, setShowFiles] = useRecoilState(store.showFiles);
 
   const activeConvo = useRecoilValue(store.conversationByIndex(0));
@@ -72,7 +75,7 @@ function NavLinks() {
                       {balanceQuery.data && (
                         <div className="flex items-center gap-1.5">
                           <span className="text-black dark:text-white">
-                            {Number(balanceQuery.data) / 10}
+                            {Math.floor(Number(balanceQuery.data) / 10)}
                           </span>
                         </div>
                       )}
@@ -106,6 +109,14 @@ function NavLinks() {
                             clickHandler={() =>
                               window.open('mailto:contact.sastagpt@gmail.com', '_blank')
                             }
+                          />
+                        </Menu.Item>
+                        <Menu.Item>
+                          <NavLink
+                            className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            svg={() => <FileText className="icon-md" />}
+                            text="Pricing"
+                            clickHandler={() => setShowPricing(true)}
                           />
                         </Menu.Item>
                       </div>
@@ -216,6 +227,7 @@ function NavLinks() {
       {showFiles && <FilesView open={showFiles} onOpenChange={setShowFiles} />}
       {showSettings && <Settings open={showSettings} onOpenChange={setShowSettings} />}
       {showInformation && <Information open={showInformation} onOpenChange={setShowInformation} />}
+      {showPricing && <Pricing open={showPricing} onOpenChange={setShowPricing} />}
     </>
   );
 }
