@@ -101,7 +101,7 @@ function NavLinks() {
                             clickHandler={() => setShowInformation(true)}
                           />
                         </Menu.Item>
-                        <Menu.Item>
+                        {/* <Menu.Item>
                           <NavLink
                             className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                             svg={() => <CircleDollarSign className="icon-md" />}
@@ -110,11 +110,11 @@ function NavLinks() {
                               window.open('mailto:contact.sastagpt@gmail.com', '_blank')
                             }
                           />
-                        </Menu.Item>
+                        </Menu.Item> */}
                         <Menu.Item>
                           <NavLink
                             className="flex w-full cursor-pointer items-center gap-3 rounded-none px-3 py-3 text-sm text-black transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                            svg={() => <FileText className="icon-md" />}
+                            svg={() => <CircleDollarSign className="icon-md" />}
                             text="Pricing"
                             clickHandler={() => setShowPricing(true)}
                           />

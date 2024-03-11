@@ -47,6 +47,16 @@ export default function Information({ open, onOpenChange }) {
               </li>
             </ul>
           </div>
+          <div className="my-3 text-center">
+            <button
+              onClick={() => {
+                window.location.href = 'mailto:contact.sastagpt@gmail.com';
+              }}
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              Buy Credits
+            </button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
