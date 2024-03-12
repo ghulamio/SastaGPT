@@ -69,7 +69,14 @@ function NavLinks() {
               <div className="whitespace-nowrap text-left text-sm text-black dark:text-gray-200">
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
-                    <Menu.Button className="inline-flex gap-2 rounded-md border border-transparent px-4 py-2 text-sm  text-white shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
+                    {/* <Menu.Button className="inline-flex gap-2 rounded-md border border-transparent px-4 py-2 text-sm  text-white shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700"> */}
+                    <Menu.Button
+                      className={cn(
+                        'group-ui-open:bg-gray-100 dark:group-ui-open:bg-gray-700 duration-350 mt-text-sm mb-1 flex w-full items-center gap-2.5 rounded-md px-2 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700',
+                        open ? 'bg-gray-100 dark:bg-gray-700' : '',
+                      )}
+                      data-testid="nav-user"
+                    >
                       <Coins className="icon-md" />
                       Credits:
                       {balanceQuery.data && (
