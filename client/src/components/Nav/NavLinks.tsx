@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Fragment, useState, memo } from 'react';
-import { Download, FileText, FileQuestion, CircleDollarSign } from 'lucide-react';
+import { Download, FileText, FileQuestion, CircleDollarSign, Coins } from 'lucide-react';
 import { Menu, Transition } from '@headlessui/react';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { useGetUserBalance, useGetStartupConfig } from 'librechat-data-provider/react-query';
@@ -70,7 +70,7 @@ function NavLinks() {
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button className="inline-flex gap-2 rounded-md border border-transparent px-4 py-2 text-sm  text-white shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-gray-700">
-                      {/* <CircleDollarSign className="icon-md" /> */}
+                      <Coins className="icon-md" />
                       Credits:
                       {balanceQuery.data && (
                         <div className="flex items-center gap-1.5">
@@ -226,7 +226,13 @@ function NavLinks() {
       )}
       {showFiles && <FilesView open={showFiles} onOpenChange={setShowFiles} />}
       {showSettings && <Settings open={showSettings} onOpenChange={setShowSettings} />}
-      {showInformation && <Information open={showInformation} onOpenChange={setShowInformation} />}
+      {showInformation && (
+        <Information
+          open={showInformation}
+          onOpenChange={setShowInformation}
+          onOpenPricing={setShowPricing}
+        />
+      )}
       {showPricing && <Pricing open={showPricing} onOpenChange={setShowPricing} />}
     </>
   );
