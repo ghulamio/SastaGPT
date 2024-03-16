@@ -16,15 +16,13 @@ export default function Pricing({ open, onOpenChange }) {
         </DialogHeader>
         <div className="m-12 overflow-x-auto p-0 sm:p-6 sm:pt-4">
           <div className="grid gap-8 md:grid-cols-3">
-            <a
-              href="mailto:contact.sastagpt@gmail.com?subject=buy 100000 credits"
-              className="block"
-            >
+            <a href="mailto:contact.sastagpt@gmail.com?subject=buy 70000 credits" className="block">
               <div className="relative transform rounded-lg border p-5 shadow-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-105">
-                <h3 className="text-center text-lg font-medium leading-6">100,000 credits</h3>
+                <h3 className="text-center text-lg font-medium leading-6">70,000 credits</h3>
                 <p className="mt-4 text-center">
-                  <span className="text-4xl font-semibold">$1.5</span>
+                  <span className="text-4xl font-semibold">$1</span>
                 </p>
+                <p className="mt-14 bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-right text-lg font-medium text-emerald-500 text-transparent"></p>
               </div>
             </a>
             <a
